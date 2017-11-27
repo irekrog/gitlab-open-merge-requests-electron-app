@@ -1,282 +1,283 @@
 @font-face {
-    font-family: 'letters_for_learnersregular';
-    src: url('../fonts/letters_for_learners-webfont.woff2') format('woff2'),
-    url('../fonts/letters_for_learners-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'letters_for_learnersregular';
+  src: url('../fonts/letters_for_learners-webfont.woff2') format('woff2'),
+  url('../fonts/letters_for_learners-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
-    --board-color: #00551e;
-    --board-border-color: #6c3404;
-    --error-color: #ec0000;
+  --board-color: #00551e;
+  --board-border-color: #6c3404;
+  --error-color: #ec0000;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 10px;
-    border: 10px solid var(--board-border-color);
-    font-family: 'letters_for_learnersregular', sans-serif;
-    font-size: 24px;
-    color: white;
-    background: var(--board-color);
-    overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 10px;
+  border: 10px solid var(--board-border-color);
+  font-family: 'letters_for_learnersregular', sans-serif;
+  font-size: 24px;
+  color: white;
+  background: var(--board-color);
+  overflow: hidden;
 }
 
 ol {
-    max-height: 70vh;
-    padding: 0 40px;
-    overflow-y: scroll;
+  max-height: 70vh;
+  padding: 0 40px;
+  overflow-y: scroll;
 }
 
 ol li {
-    margin: 3px 0;
-    padding: 3px 0;
+  margin: 3px 0;
+  padding: 3px 0;
 }
 
 a {
-    text-decoration: none;
-    line-height: 1;
-    color: inherit;
+  text-decoration: none;
+  line-height: 1;
+  color: inherit;
 }
 
 .opened-popup {
-    display: flex;
-    width: 100%;
-    height: 50px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: red;
-    z-index: 3;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(-50px);
-    animation: pop 2s forwards;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: red;
+  z-index: 3;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50px);
+  animation: pop 2s forwards;
 }
 
-@keyframes pop  {
-    from {
-        visibility: hidden;
-        opacity: 0;
-    }
+@keyframes pop {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
 
-    to {
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .button {
-    background: midnightblue;
-    color: white;
-    border: 0;
-    padding: 10px;
-    box-shadow: none;
-    line-height: 1;
-    text-transform: uppercase;
-    cursor: pointer;
+  background: midnightblue;
+  color: white;
+  border: 0;
+  padding: 10px;
+  box-shadow: none;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .button:hover {
-    background: #0c0c50;
+  background: #0c0c50;
 }
 
 .user-can-approve {
-    background: rgba(169, 169, 19, 0.56);
+  background: rgba(169, 169, 19, 0.56);
 }
 
 .user-has-approved {
-    background: rgba(0, 163, 169, 0.56);
+  background: rgba(0, 163, 169, 0.56);
 
 }
 
 .active-progress {
-    animation: progress 3s linear infinite;
+  animation: progress 3s linear infinite;
 }
 
 @keyframes progress {
-    0% {
-        transform: rotate(0)
-    }
+  0% {
+    transform: rotate(0)
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .board-title {
-    text-align: center;
+  text-align: center;
 }
 
 .author-name {
-    font-style: italic;
-    pointer-events: none;
+  font-style: italic;
+  pointer-events: none;
 }
 
 .login-form {
-    text-align: center;
+  text-align: center;
 }
 
 .login-form label {
-    display: block;
+  display: block;
 }
 
 *:focus {
-    outline: rgb(229, 151, 0) solid 5px;
+  outline: rgb(229, 151, 0) solid 5px;
 }
 
 .save-token {
-    position: fixed;
-    top: 0;
-    height: 50px;
-    width: 100%;
-    background: red;
-    z-index: 3;
-    text-align: center;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(-50px);
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  background: red;
+  z-index: 3;
+  text-align: center;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50px);
 }
 
 .overlay {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 255, 0.31);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 255, 0.31);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
 
 .settings-container {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .settings-popup {
-    position: fixed;
-    width: 50vw;
-    height: 50vh;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    background: rgba(184, 134, 11, 0.99);
-    z-index: 4;
-    text-align: center;
+  position: fixed;
+  width: 50vw;
+  height: 50vh;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background: rgba(184, 134, 11, 0.99);
+  z-index: 4;
+  text-align: center;
 }
 
 .close-popup {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    background: none;
-    border: 0;
-    border-radius: 0;
-    font-size: 20px;
-    cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .close-popup::after {
-    content: '';
-    position: absolute;
-    right: -5px;
-    top: -5px;
-    left: -5px;
-    bottom: -5px;
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  left: -5px;
+  bottom: -5px;
 }
 
 .something-went-wrong {
-    position: fixed;
-    top: 0;
-    height: 50px;
-    width: 100%;
-    background: var(--error-color);
-    z-index: 3;
-    text-align: center;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(-50px);
-    animation: sww 2s linear forwards;
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  background: var(--error-color);
+  z-index: 3;
+  text-align: center;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50px);
+  animation: sww 2s linear forwards;
 }
 
-@keyframes sww  {
-    0% {
-        visibility: hidden;
-        opacity: 0;
-    }
+@keyframes sww {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
 
-    100% {
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-    }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 summary {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 details {
-    text-indent: -32px;
-    padding-left: 32px;
+  text-indent: -32px;
+  padding-left: 32px;
 }
 
 .blurred {
-    filter: blur(5px);
+  filter: blur(5px);
 }
 
 .how-can-i-get {
-    font-size: 14px;
-    text-decoration: underline;
+  font-size: 14px;
+  text-decoration: underline;
 }
 
 fieldset {
-    max-width: 50vw;
-    width: 100%;
-    margin: 0 auto;
+  max-width: 50vw;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .bottom-menu {
-    background: #355440;
-    width: calc(100vw - 20px);
-    margin-left: -10px;
-    position: fixed;
-    bottom: 10px;
+  background: #355440;
+  width: calc(100vw - 20px);
+  margin-left: -10px;
+  position: fixed;
+  bottom: 10px;
 }
 
 .legend {
-    display: inline-block;
-    float: right;
-    margin-top: 4px;
+  display: inline-block;
+  float: right;
+  margin-top: 4px;
 }
 
 .button:disabled,
 .button[disabled] {
-    background: gray;
-    pointer-events: none;
+  background: gray;
+  pointer-events: none;
 }

@@ -8,21 +8,21 @@ const SomethingWentWrong = require('./src/js/compontents/SomethingWentWrong');
 const store = new Store();
 
 class Login {
-    constructor() {
-        const storedToken = store.get('token');
-        storedToken ? new MergeRequests(storedToken) : this.getValue();
-    }
+  constructor() {
+    const storedToken = store.get('token');
+    storedToken ? new MergeRequests(storedToken) : this.getValue();
+  }
 
-    getValue() {
-        const tokenInput = document.getElementById('token');
-        const submitButton = document.getElementById('submit');
+  getValue() {
+    const tokenInput = document.getElementById('token');
+    const submitButton = document.getElementById('submit');
 
-        submitButton.addEventListener('click', e => {
-            e.preventDefault();
-            new MergeRequests(tokenInput.value);
-            SomethingWentWrong.hide();  // TODO
-        })
-    }
+    submitButton.addEventListener('click', e => {
+      e.preventDefault();
+      new MergeRequests(tokenInput.value);
+      SomethingWentWrong.hide();  // TODO
+    })
+  }
 }
 
 new Login();

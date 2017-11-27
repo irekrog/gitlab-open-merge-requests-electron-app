@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>GitLab Open Merge Requestes</title>
-    <link href="src/static/css/style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>GitLab Open Merge Requestes</title>
+  <link href="src/static/css/style.css" rel="stylesheet">
 </head>
 <body>
 <div id="root" class="root">
-    <header>
-        <h1 class="board-title">GitLab Open Merge Requests</h1>
-    </header>
-    <div id="login-form" class="login-form">
-        <form>
-            <fieldset>
-                <legend>Log in with token</legend>
-                <label for="token">Enter your token</label>
-                <input id="token" type="text" name="Token" placeholder="Enter your token">
-                <button type="submit" id="submit" class="button">Login</button>
-            </fieldset>
-        </form>
-        <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#creating-a-personal-access-token"
-           target="_blank" class="how-can-i-get">How can I get a token?</a>
-    </div>
-    <div id="bottom-menu" class="bottom-menu">
-        <button id="settings" class="settings button">App settings</button>
-        <button id="refresh" class="refresh button">Refresh app</button>
-    </div>
+  <header>
+    <h1 class="board-title">GitLab Open Merge Requests</h1>
+  </header>
+  <div id="login-form" class="login-form">
+    <form>
+      <fieldset>
+        <legend>Log in with token</legend>
+        <label for="token">Enter your token</label>
+        <input id="token" type="text" name="Token" placeholder="Enter your token">
+        <button type="submit" id="submit" class="button">Login</button>
+      </fieldset>
+    </form>
+    <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#creating-a-personal-access-token"
+       target="_blank" class="how-can-i-get">How can I get a token?</a>
+  </div>
+  <div id="bottom-menu" class="bottom-menu">
+    <button id="settings" class="settings button">App settings</button>
+    <button id="refresh" class="refresh button">Refresh app</button>
+  </div>
 </div>
 <script>
-    require('./renderer.js')
+  require('./renderer.js')
 </script>
 </body>
 </html>
