@@ -10,10 +10,27 @@
   --board-color: #00551e;
   --board-border-color: #6c3404;
   --error-color: #ec0000;
+  --outline-color: #e59700;
+  --font-color: #ffffff;
+  --info-popup-color: #1e4975;
+  --button-color: #191970;
+  --button-hover-color: #0c0c50;
+  --button-disabled: #808080;
+  --can-approve-color: rgba(169, 169, 19, 0.56);
+  --has-approved-color: rgba(0, 163, 169, 0.56);
+  --settings-popup-color: rgba(184, 134, 11, 0.99);
+  --overlay: rgba(0, 0, 255, 0.31);
+  --bottom-menu-color: #355440;
+
+  --main-font: 'letters_for_learnersregular';
 }
 
-* {
+*, ::before, ::after {
   box-sizing: border-box;
+}
+
+*:focus {
+  outline: var(--outline-color) solid 5px;
 }
 
 html {
@@ -26,22 +43,11 @@ body {
   margin: 0;
   padding: 10px;
   border: 10px solid var(--board-border-color);
-  font-family: 'letters_for_learnersregular', sans-serif;
+  font-family: var(--main-font), sans-serif;
   font-size: 24px;
-  color: white;
+  color: var(--font-color);
   background: var(--board-color);
   overflow: hidden;
-}
-
-ol {
-  max-height: 70vh;
-  padding: 0 40px;
-  overflow-y: scroll;
-}
-
-ol li {
-  margin: 3px 0;
-  padding: 3px 0;
 }
 
 a {
@@ -50,23 +56,69 @@ a {
   color: inherit;
 }
 
-.opened-popup {
+.board-title {
+  text-align: center;
+}
+
+/** Login form **/
+.login-form {
+  text-align: center;
+}
+
+.login-form label {
+  display: block;
+}
+
+.how-can-i-get {
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+/** Button **/
+.button {
+  background: var(--button-color);
+  color: var(--font-color);
+  border: 0;
+  padding: 10px;
+  box-shadow: none;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--button-hover-color);
+}
+
+.button:disabled,
+.button[disabled] {
+  background: var(--button-disabled);
+  pointer-events: none;
+}
+
+/** Popup **/
+.opened-popup,
+.something-went-wrong {
   display: flex;
   width: 100%;
   height: 50px;
   position: fixed;
   top: 0;
   left: 0;
-  background: red;
+  background: var(--info-popup-color);
   z-index: 3;
   text-align: center;
   align-items: center;
   justify-content: center;
   transform: translateY(-50px);
-  animation: pop 2s forwards;
+  animation: popup 2s linear forwards;
 }
 
-@keyframes pop {
+.something-went-wrong {
+  background: var(--error-color);
+}
+
+@keyframes popup {
   from {
     visibility: hidden;
     opacity: 0;
@@ -79,28 +131,23 @@ a {
   }
 }
 
-.button {
-  background: midnightblue;
-  color: white;
-  border: 0;
-  padding: 10px;
-  box-shadow: none;
-  line-height: 1;
-  text-transform: uppercase;
-  cursor: pointer;
+/** Loading **/
+.overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--overlay);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
 
-.button:hover {
-  background: #0c0c50;
-}
-
-.user-can-approve {
-  background: rgba(169, 169, 19, 0.56);
-}
-
-.user-has-approved {
-  background: rgba(0, 163, 169, 0.56);
-
+.blurred {
+  filter: blur(5px);
 }
 
 .active-progress {
@@ -117,56 +164,7 @@ a {
   }
 }
 
-.board-title {
-  text-align: center;
-}
-
-.author-name {
-  font-style: italic;
-  pointer-events: none;
-}
-
-.login-form {
-  text-align: center;
-}
-
-.login-form label {
-  display: block;
-}
-
-*:focus {
-  outline: rgb(229, 151, 0) solid 5px;
-}
-
-.save-token {
-  position: fixed;
-  top: 0;
-  height: 50px;
-  width: 100%;
-  background: red;
-  z-index: 3;
-  text-align: center;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(-50px);
-}
-
-.overlay {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 255, 0.31);
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-}
-
+/** Settings **/
 .settings-container {
   width: 100vw;
   height: 100vh;
@@ -184,7 +182,7 @@ a {
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  background: rgba(184, 134, 11, 0.99);
+  background: var(--settings-popup-color);
   z-index: 4;
   text-align: center;
 }
@@ -209,33 +207,16 @@ a {
   bottom: -5px;
 }
 
-.something-went-wrong {
-  position: fixed;
-  top: 0;
-  height: 50px;
-  width: 100%;
-  background: var(--error-color);
-  z-index: 3;
-  text-align: center;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(-50px);
-  animation: sww 2s linear forwards;
+/** List of merge requests **/
+ol {
+  max-height: 70vh;
+  padding: 0 40px;
+  overflow-y: scroll;
 }
 
-@keyframes sww {
-  0% {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  100% {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-  }
+ol li {
+  margin: 3px 0;
+  padding: 3px 0;
 }
 
 summary {
@@ -247,23 +228,28 @@ details {
   padding-left: 32px;
 }
 
-.blurred {
-  filter: blur(5px);
-}
-
-.how-can-i-get {
-  font-size: 14px;
-  text-decoration: underline;
-}
-
 fieldset {
   max-width: 50vw;
   width: 100%;
   margin: 0 auto;
 }
 
+.user-can-approve {
+  background: var(--can-approve-color);
+}
+
+.user-has-approved {
+  background: var(--has-approved-color);
+}
+
+.author-name {
+  font-style: italic;
+  pointer-events: none;
+}
+
+/** Bottom menu **/
 .bottom-menu {
-  background: #355440;
+  background: var(--bottom-menu-color);
   width: calc(100vw - 20px);
   margin-left: -10px;
   position: fixed;
@@ -274,10 +260,4 @@ fieldset {
   display: inline-block;
   float: right;
   margin-top: 4px;
-}
-
-.button:disabled,
-.button[disabled] {
-  background: gray;
-  pointer-events: none;
 }
